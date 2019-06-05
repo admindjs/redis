@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body> 
+    <form action="/new?id={{data[0].id}}" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" id="" value="{{data[0].name}}">
+        <input type="text" name="nengli" id="" value="{{data[0].nengli}}">
+        <input type="text" name="jituan" id="" value="{{data[0].jituan}}">
+        <img src="{{data[0].img}}" alt="">
+        <input type="file" name="img" id="" value="{{data[0].img}}">
+        <input type="submit" value="提交">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+        <a href="/add">添加</a>
+    <table id="l1">
+        <tr>
+            <th>name</th>
+            <th>nengli</th>
+            <th>jituan</th>
+            
+        </tr>
+    </table>
+    <script>
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                // console.log(xhr.responseText);
+                var data = JSON.parse(xhr.responseText);
+                
+                var html = '';
+                for (var i = 0; i < data.length; i++) {
+                    // console.log(data[i].img);
+                    html += "<tr>";
+                    html += '<td>' + (data[i].id) + '</td>';
+                    html += '<td>' + (data[i].name) + '</td>';
+                    html += '<td>' + (data[i].nengli) + '</td>';
+                    html += '<td>' + (data[i].jituan) + '</td>';
+                    html += '<td><img src="'+(data[i].img)+'" alt=""></td>';
+                    html += '<td>';  
+                        html += '<a href="/getuser?id='+(data[i].id)+'">详情</a> ';
+                        html += '<a href="/del?id='+(data[i].id)+'" onclick=demo()>删除</a> ';
+                        html += '<a href="/upd?id='+(data[i].id)+'">修改</a> ';
+                        
+                        html +='</td>';
+                    html += "</tr>";
+                }
+                var _html = document.getElementById('l1').innerHTML;
+                document.getElementById('l1').innerHTML = _html+html;
+            }
+
+        }
+
+        xhr.open('get', "http://127.0.0.1:4356/getdata");
+        xhr.send();
+   
+
+
+
+
+    </script>
+</body>
+
+</html>
