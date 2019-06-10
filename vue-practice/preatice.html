@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JS高级-正则表达式</title>
+</head>
+<body>
+	<h1>正则表达式</h1>
+	<script type="text/javascript">
+		//匹配str字符串中p是否存在
+		// var str = 'php';
+		// var result = str.match(/p/);
+		// console.log(result);
+		// var result = str.match(/p/g); // g global
+		// console.log(result);
+		// //var result = str.match(/参数就是正则表达式/); //返回包含匹配结果的数组或者null
+
+		// var str = 'phpphp'; //'hph'
+		// var res = str.match(/p+/g);//匹配所有的一个p或多个连在一起的p
+		// console.log(res);//["p", "pp", "p"]
+		// var res = str.match(/p?/g);//匹配所有的0个p或一个p   hp?  h hp
+		// //? 包含0个的情况； 字符串有开头和结束两个位置
+		// console.log(res);//["p","", "p", "p", "", "p", ""]
+
+		// var res = str.match(/p{2}/g);
+		// console.log(res);//["pp"]
+
+		// var str = 'phpphp'; //'hph'
+		// var res = str.match(/p+/g);
+		// // var res = str.match(/p{1,}/g);
+
+		// // var res = str.match(/p{1,2}/g);
+		// console.log(res);//["pp"]
+
+
+		// var str = 'phpphp';
+		// var res = str.match(/p+?/g);//+后面有? 执行非贪婪匹配（最少匹配）
+		// console.log(res);//["p", "p", "p", "p"]
+
+		// var str = 'php1js22';
+		// var res = str.match(/\d+/g);//匹配所有的数字
+		// console.log(res);//["1", "22"]
+
+		// var phone = '15312345678';
+		// // var phone = 'b15312345678';
+		// // var phone = 'b15312345678ds';
+		// // var res = phone.match(/\d{11}/);
+		// var res = phone.match(/^\d{11}$/);
+		// console.log(res);
+
+		// var str = 'adcd1234ABCDd';
+		// // var res = str.match(/[a-z]+/g);//匹配所有小写字母字符串
+		// var res = str.match(/[A-Z]+/g);//匹配所有小写字母字符串
+		// console.log(res);//["abcd"] 
+
+		// var str = 'adcd1234ABCD';
+		// var res = str.match(/[a-z]+/gi);//匹配所有字母字符串(忽略大小写)
+		// console.log(res);//["adcd", "ABCD"]
+
+		// var str = '1234\r\n5678';
+		// // var res = str.match(/^\d+$/g);//匹配整个数字字符串
+		// var res = str.match(/^\d+$/gm);//匹配整个数字字符串
+		// console.log(res);//["1234", "5678"]
+
+		// var str = '996.icu';
+		// 1、判断有没有99
+		// console.log( str.match(/9{2}/) );
+		// 2、判断有没有小数点.
+		// console.log( str.match(/./g) );
+		// console.log( str.match(/\./) );
+		// 3、icu 替换为 tsc
+		// 4、获取其中的9 和 u
+		// console.log( str.match(/[9u]/g) );
+		// console.log( str.match(/9|u/g) );
+
+		// var str = '123.jpg';//目标字符串中包含普通字符.
+		// var res = str.match(/.*\.jpg/g);//匹配jpg后缀的图片名称
+		// console.log(res);//["123.jpg"]
+
+		//开始数字和结束数字 [123, 789]
+		// var str = '123abc456+def789';
+		// console.log(str.match(/^\d+/));
+		// console.log(str.match(/\d+$/));
+		// console.log(str.match(/^\d+|\d+$/g));
+		// console.log(str.match(/(^\d+)|(\d+$)/g));
+
+	</script>
+
+
+	</script>
+	<script type="text/javascript">
+// *	匹配前面的子表达式零次或多次。
+// +	匹配前面的子表达式一次或多次。
+// ?	匹配前面的子表达式零次或一次。
+// \d	匹配一个数字字符。等价于 [0-9]。
+// \w	匹配字母、数字、下划线。等价于'[A-Za-z0-9_]'。
+// \W	匹配非（字母、数字、下划线）。等价于 '[^A-Za-z0-9_]'。
+// ^	匹配输入字符串开始的位置。
+// $	匹配输入字符串结尾的位置。
+// [xyz]	字符集合。匹配所包含的任意一个字符。例如， '[abc]' 可以匹配 "plain" 中的 'a'。
+// [^xyz]	负值字符集合。匹配未包含的任意字符。例如， '[^abc]' 可以匹配 "plain" 中的'p'、'l'、'i'、'n'。
+// [a-z]	字符范围。匹配指定范围内的任意字符。例如，'[a-z]' 可以匹配 'a' 到 'z' 范围内的任意小写字母字符。
+// [^a-z]	负值字符范围。
+// \	将下一个字符标记为一个特殊字符、或一个原义字符、或一个 向后引用、或一个八进制转义符。例如，'n' 匹配字符 "n"。'\n' 匹配一个换行符。序列 '\\' 匹配 "\" 而 "\(" 则匹配 "("。
+
+
+	// 	必须有@和.  /@ \./
+
+	// 	@前面是邮箱名，要求至少一个字符，要求是数字、字母、下划线、[还可以用.-]，但是开头必须是数字字母下划线 /^\w[\w\.-]*@/ 
+
+	//@和点之间：是一个域名，要求至少一个字符，可以是数字字母中横线，要求开头是数字或字母
+	//  /@[0-9a-z][0-9a-z-]*\./
+
+	// 	点后面：要求是至少一个字符，必须是字母 /\.[a-z]+/
+
+	// 	点xxx，这部分可以出现一次，也可以出现多次  /(\.[a-z]+)+/
+
+	// 最后一个点后面，字符长度为2-6的字母 /\.[a-z]{2,6}$/
+
+	//  综合以上三步 和.相关的 /(\.[a-z]+)*\.[a-z]{2,6}$/
+
+	// var pattern = /^\w[\w\.-]*@[0-9a-z][0-9a-z-]*(\.[a-z]+)*\.[a-z]{2,6}$/i;
+	// var email = 'a100.b-@qq.com';
+	// var email = '-a100.b-@qq.com';
+	// var email = '-a100.b-@qq.commmmm';
+	// console.log(pattern.test(email));
+
+
+	</script>
+
+	<script type="text/javascript">
+		/*var str = '1122 3434 5566 7879 9887 9998';
+		//匹配连续四个数字，第一和第二数字相同，第三和第四数字相同
+		var pattern = /(\d)\1(\d)\2/g; // \d{4}
+		console.log(str.match(pattern));
+
+		//匹配连续四个数字，第一和第三数字相同，第二和第四数字相同
+		var res = str.match(/(\d)(\d)\1\2/g);
+		console.log(res);
+
+		//匹配连续四个数字，第一和第三数字相同
+		var res = str.match(/(\d)\d\1\d/g);
+		console.log(res);
+
+		//匹配连续四个数字，前三位相同
+		var res = str.match(/(\d)\1{2}\d/g);
+		var res = str.match(/(\d)\1\1\d/g);
+		console.log(res);
+
+		//匹配连续四个数字，第一和第二数字相同，第三和第四数字相同，并将相同的数字只保留一个
+		//1122   5566   =>   12   56
+		var res = str.match(/(\d)\1(\d)\2/g);
+		console.log(res);
+		//字符串替换 replace方法
+		var res = str.replace(/(\d)\1(\d)\2/g, '$1$2');
+		console.log(res);
+
+		//第一次捕获禁止引用
+		var str = '1122 3434 5566 7879 9887';
+		// var res = str.match(/(\d)(\d)\1\d/g);
+		var res = str.match(/(?:\d)(\d)\1\d/g);
+		console.log(res);
+
+		var str = "你好，世界";
+		var res = str.match(/[\u4E00-\u9FA5]/g);
+		console.log(res);//["你", "好", "世", "界"]
+*/
+
+		// var str = "今今今天晚晚晚晚晚晚上吃吃吃吃吃吃鸡";
+		// //今天晚上吃鸡
+		// var res = str.replace(/([\u4E00-\u9FA5])\1+/g, '$1');
+		// console.log(res);
+
+		// var str = 'win8 win7 win10 win10 win10';
+		// //win10 中的win
+		// // var res = str.match(/win10/g);
+		// var res = str.match(/win(?=10)/g);
+		// console.log(res);
+
+		// //win后面不是10 的win
+		// var res = str.match(/win(?!10)/g);
+		// console.log(res);
+
+		// var str = "abcd1234";
+		// var res = str.match(/(?!c)[a-z]/g);
+		// console.log(res); //["a", "b", "d"]
+/*
+		var arr = [
+			'img/20181013/a.jpg',
+			'img/20181014/b.png',
+			'image/20181014/a.jpg',
+			'image/20181013/b.png',
+			'20181013/c.png'
+		];
+
+		//找出 不以img开头的  图片地址
+		var pattern = /^(?!img).*\.(jpg|png|gif)$/;
+
+		for(var i=0;i<arr.length;i++){
+			var res = arr[i].match(pattern);
+			// var res = pattern.test(arr[i]);
+			if(res){
+				console.log(arr[i]);
+			}
+		}
+*/
+		// var str = "1234@qq.com";
+		// var res = str.match(/[@\.]/); // .要加转义
+		// // var res = str.match(/[@\.]/g); // .要加转义
+		// console.log(res); //["@", "."]
+
+		// var str = "1234@qq.com";
+		// var res = str.search(/[@\.]/); // .要加转义
+		// console.log(res); //4
+
+		// var str = "1234@qq.com";
+		// var res = str.split(/[@\.]/); // .要加转义
+		// console.log(res); //["1234", "qq", "com"]
+
+		var str = '<div id="div1"><div id="a">abc</div></div>'
+		//<div id="a">abc</div>
+		var pattern = /<div\s+id=(['"])a\1>.*?<\/div>/;
+		var res = str.match(pattern);
+		console.log(res);
+	</script>
+</body>
+</html>

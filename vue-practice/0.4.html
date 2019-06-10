@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue-v2.6.10.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="x">
+        <input type="text" v-model="m">
+
+        {{xm}}
+       
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            x: '刘',
+            m: '能',
+            xm:''
+        },
+
+        // 侦听器的声明
+        watch:{
+            // 侦听器的方法名就是侦听数据的名字(这是不能改的)
+            // 对应的值只要有变化，侦听器就会自动调用
+            // 传入变化后的新值和变化前的旧值 
+            x(newdatas,olddata){
+                console.log(olddata);
+                if(newdatas == '李'){
+                    this.xm = newdatas + this.m;
+                }else{
+                    this.xm = '刘'+this.m;
+                }
+                // console.log(newdata)
+                // console.log(olddata)
+            }
+        }
+       
+    })
+
+</script>
+
+</html>

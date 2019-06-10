@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue-v2.6.10.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="" @click="aa">
+        <p v-if="aaa">adfasf </p>
+        <P v-show="aaa">sdfsf</P>
+        <ul v-for="(v,k) in arr">
+            <li >
+                {{v}}
+            </li>
+        </ul>
+    </div>
+    <!-- if是这个标签是不是存在 -->
+    <!-- show是这个标签现不现实是有区别的 -->
+<!-- for循环的语法是 v-for="(v,k) in 数据"  里面是他的循环体 可以循环数组也可以循环对对象-->
+</body>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            aaa: true,
+           
+            arr:['刘强东','奶茶妹妹','发福蝶','大脑斧','李小璐','志玲'],
+            obj:{name:"李斯",msg:"丞相",age:'68'}
+        
+        },
+        methods: {
+            aa: {
+                //这是对象 没有this
+            },
+            //这是函数韩式有this
+
+            aa() {
+                this.aaa = !this.aaa;
+            }
+        },
+        watch: {
+
+        },
+
+    })
+
+
+</script>
+
+</html>

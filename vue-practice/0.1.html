@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue-v2.6.10.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="变" @click="aa">
+        <!-- <p :style="bb" id="demo">sdfsdfsdf</p> -->
+        <!-- <p style="font-size:20px">232</p> -->
+        <p>士大夫撒旦</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                bb:"background:rgb(0,23,255)",
+                // colorStatus:false
+            },
+            methods:{
+                aa:function (){
+               var aa= Math.floor(Math.random()*255);
+               var bb= Math.floor(Math.random()*255);
+               var cc= Math.floor(Math.random()*255);
+                    // console.log(aa)
+                    this.bb="background:rgb("+aa+","+bb+","+cc+")";
+                },
+                // Document.getelementByTagName('p');
+            }
+        })
+        var aa =document.getElementsByTagName('p')[0].innerHTML;
+        console.log(aa);
+    </script>
+
+</html>
+</body>
+<!-- class的值只能是字符串不能是数类行的 -->
+<!-- 
+v-if v-html v-text 这些是用等号的
+{{ww()}}可以执行函数调用
+
+
+
+
+
+
+ -->

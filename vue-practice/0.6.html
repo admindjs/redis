@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue-v2.6.10.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="xx">
+   
+        <p v-red>123</p>
+        <i v-red> asdf</i>
+        <p v-color="cc">tttttt</p>
+        <p v-aa="red">tttttt</p>
+    </div>
+
+    <div id="app2">
+        <p v-color="dd">123</p>
+    </div>
+</body>
+<script>
+ 
+    var app = new Vue({
+        el:'#app',
+        data:{
+            xx:'123',
+            cc:"pink"
+        },
+
+        // 局部自定义指令
+        directives:{
+            // 自定义指令的名字(方法)
+            // 在html中使用时需要加v- 声明时不需要加v-
+            red:{
+                inserted:function(el){
+                    console.log(el);
+                    el.style.background = 'blue';
+                }
+            },
+            color:{
+                // 第一个参数是使用指令的节点对象 第二参数是 指令传入的数据对象
+                inserted:function(el,val){
+                    // console.log(val);
+                    el.style.background = val.value;
+                }
+            },
+            aa:{
+                inserted:function(el,val){
+                    el.style.background = val.value;
+                }
+            }
+        }
+
+    })
+
+    var app2 = new Vue({
+        el:"#app2",
+        data:{
+            dd:'yellow'
+        }
+    })
+</script>
+</html>
+<!-- 先设一个随机的属性 然后在directives 里面写一个这个的方法然后 加入
+inserted 寄一个函数 里面有两个参数 第一个参数是事件节点 第二个是产过穿过来的值 切记
+是穿过来的value的值不是奔身
+ -->

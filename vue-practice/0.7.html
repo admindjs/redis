@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue-v2.6.10.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 组件的名字就是标签名字 -->
+        <myzujian></myzujian>
+        <!--  -->
+        <!-- <div></div> -->
+        <!-- 组件当做标签使用时，标签中的内容无用 -->
+        <!-- 因为 组件的template的内容会将整个标签替换 -->
+        <x-x>adksflj</xx>
+    </div>
+</body>
+<script>
+    // 全局组件
+    Vue.component('myzujian', { // 组件的名字不能喝原生html的标签名重名
+        template: "<h2>西岭老湿太帅了</h2>"
+    })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+
+        },
+        // 私有组件的声明
+        components: {
+            xX: {
+                template: "<h2>发生的发生的发萨德</h2>"
+            }
+
+        }
+    })
+
+</script>
+
+</html>
